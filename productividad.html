@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Productividad | ronfernandez</title>
+  <meta name="description" content="Productividad académica de ronfernandez: publicaciones, docencia, proyectos y recursos." />
+
+  <!-- ===== Estilos scoped para evitar conflictos con cualquier tema ===== -->
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #0f1720;
+      --card: #121b26;
+      --ink: #ecf2f8;
+      --muted: #a9b6c5;
+      --brand: #00b2a9;
+      --brand-2: #1ed1cb;
+      --accent: #48a5ff;
+      --radius: 16px;
+      --shadow: 0 8px 24px rgba(0,0,0,.25);
+      --maxw: 1200px;
+    }
+    /* Scope todo bajo #productividad-app para no chocar con el tema del sitio */
+    #productividad-app * { box-sizing: border-box; }
+    #productividad-app {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+      padding: 24px 16px 64px;
+    }
+    #productividad-app a { color: var(--brand-2); text-decoration: none; }
+    #productividad-app a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+
+    header.hero {
+      display: grid;
+      gap: 12px;
+      margin: 0 auto 20px;
+      padding: 18px 18px;
+      background: linear-gradient(135deg, rgba(0,178,169,.12), rgba(72,165,255,.08));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(22px, 3.5vw, 32px);
+      letter-spacing: .2px;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .hero .crumbs {
+      font-size: 14px; color: var(--muted);
+    }
+
+    /* Layout 2 paneles */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 20px;
+    }
+    @media (max-width: 960px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* Panel izquierdo (contenido) */
+    .content {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    .content h2, .content h3 {
+      scroll-margin-top: 90px; /* para anclas */
+    }
+    .lead {
+      color: var(--muted);
+      margin-top: -4px;
+    }
+
+    /* Tarjetas */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      margin: 14px 0 6px;
+    }
+    @media (max-width: 720px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding: 14px;
+      transition: transform .2s ease;
+    }
+    .card:hover { transform: translateY(-2px); }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px; letter-spacing: .3px;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 2px 8px; border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    .card h4 { margin: 6px 0 6px; font-size: 16.5px; }
+    .meta { color: var(--muted); font-size: 13px; }
+
+    /* Embed PDF */
+    .pdf {
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 8px;
+      background: #0a0f14;
+    }
+    .pdf iframe, .pdf object {
+      width: 100%;
+      height: 420px;
+      display: block;
+      border: 0;
+    }
+
+    /* Panel derecho (TOC / filtros) */
+    aside.toc {
+      position: sticky;
+      top: 16px;
+      height: fit-content;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .toc h3 { margin-top: 0; font-size: 16px; }
+    .toc nav ul {
+      list-style: none; padding-left: 0; margin: 0;
+    }
+    .toc nav li { margin: 6px 0; }
+    .toc nav a { color: var(--ink); opacity: .85; }
+    .toc nav a.active { color: var(--brand); font-weight: 600; }
+    .filters { margin-top: 14px; }
+    .filters details {
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px; padding: 8px 10px; margin-bottom: 8px;
+    }
+    .filters summary { cursor: pointer; color: var(--muted); }
+    .tag {
+      display: inline-block; font-size: 12px; color: var(--muted);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px; padding: 2px 8px; margin: 3px 6px 0 0;
+    }
+
+    /* Pequeñas utilidades */
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #08211f; font-weight: 700;
+      padding: 10px 14px; border-radius: 12px; text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0,178,169,.25);
+    }
+    .btn:hover { filter: brightness(1.04); text-decoration: none; }
+    .muted { color: var(--muted); }
+    hr.sep { border: 0; border-top: 1px solid rgba(255,255,255,.08); margin: 18px 0; }
+  </style>
+</head>
+<body>
+<div id="productividad-app">
+  <div class="wrap">
+
+    <header class="hero" aria-labelledby="t1">
+      <div class="crumbs"><a href="/">← Inicio</a></div>
+      <h1 id="t1">Productividad académica</h1>
+      <p class="lead">
+        Publicaciones, docencia, proyectos y recursos. Página auto-contenida con
+        <strong>dos paneles</strong>: contenido a la izquierda e índice/TOC a la derecha.
+        Funciona sin depender del tema de GitHub Pages.
+      </p>
+      <div class="row">
+        <a class="btn" href="#publicaciones">Ver publicaciones</a>
+        <span class="muted">Última actualización: 2025-08-21</span>
+      </div>
+    </header>
+
+    <main class="grid" aria-label="Diseño dos paneles">
+      <!-- ===== Panel izquierdo: CONTENIDO ===== -->
+      <article class="content" id="content">
+        <h2 id="destacados">Destacados recientes</h2>
+        <div class="cards">
+          <div class="card">
+            <span class="eyebrow">Artículo · 2025</span>
+            <h4>Detección ecoacústica multiespecie en selva maya</h4>
+            <div class="meta">Fernández-Gómez, R.A. et al. DOI: 10.xxxx/xxxxx</div>
+            <div class="row" style="margin-top:8px">
+              <a class="btn" href="files/2025-selva-maya.pdf">📄 PDF</a>
+              <a href="#" class="muted">Código</a>
+              <a href="#" class="muted">Datos</a>
+            </div>
+            <div class="pdf" aria-label="PDF incrustado (ejemplo)">
+              <object data="files/2025-selva-maya.pdf" type="application/pdf">
+                <iframe src="files/2025-selva-maya.pdf"></iframe>
+              </object>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="eyebrow">Preprint · 2024</span>
+            <h4>Nicho ecológico comparado en <em>Arremonops</em></h4>
+            <div class="meta">Fernández-Gómez, R.A. et al. OSF: osf.io/xxxxx</div>
+            <div class="row" style="margin-top:8px">
+              <a class="btn" href="files/2024-arremonops.pdf">📄 PDF</a>
+              <a href="#" class="muted">DOI</a>
+              <a href="#" class="muted">Altmetric</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="sep" />
+
+        <h2 id="publicaciones">Publicaciones</h2>
+        <p class="muted">Lista seleccionada. Para el listado completo, ver Google Scholar.</p>
+
+        <h3 id="y2025">Año 2025</h3>
+        <ul>
+          <li>
+            <strong>Detección ecoacústica multiespecie en selva maya.</strong>
+            <br /><span class="muted">Revista X, 12(3): 100–120.</span>
+            — <a href="files/2025-selva-maya.pdf">PDF</a> · <a href="#">DOI</a> · <a href="#">Citar</a>
+          </li>
+        </ul>
+
+        <h3 id="y2024">Año 2024</h3>
+        <ul>
+          <li>
+            <strong>Nicho ecológico comparado en <em>Arremonops</em> spp.</strong>
+            <br /><span class="muted">Preprint.</span>
+            — <a href="files/2024-arremonops.pdf">PDF</a> · <a href="#">OSF</a> · <a href="#">Citar</a>
+          </li>
+        </ul>
+
+        <hr class="sep" />
+
+        <h2 id="docencia">Docencia y tesis</h2>
+        <ul>
+          <li><strong>Biodiversidad-VI (Animales)</strong> — Programa, materiales, prácticas.</li>
+          <li><strong>Comunicación Animal y Ecología Sensorial</strong> — Sílabo y lecturas.</li>
+          <li><strong>Tesis dirigidas</strong> — Listado y PDFs (cuando aplicable).</li>
+        </ul>
+
+        <h2 id="proyectos">Proyectos</h2>
+        <ul>
+          <li>Monitoreo acústico en la selva maya (CNNs + BirdNET + ecoacústica).</li>
+          <li>Modelos de ocupación multiespecie con covariables reales.</li>
+          <li>Valoración ecosistémica y conectividad funcional en Nariño.</li>
+        </ul>
+
+        <h2 id="recursos">Recursos</h2>
+        <ul>
+          <li>Datasets y protocolos de campo.</li>
+          <li>Repositorios de código (GitHub) y dashboards.</li>
+        </ul>
+      </article>
+
+      <!-- ===== Panel derecho: TOC + filtros ===== -->
+      <aside class="toc" aria-label="Índice y filtros">
+        <h3>Índice (página)</h3>
+        <nav id="toc"></nav>
+
+        <div class="filters">
+          <details open>
+            <summary>Etiquetas / líneas</summary>
+            <span class="tag">Ecoacústica</span>
+            <span class="tag">Ornitología</span>
+            <span class="tag">Modelado</span>
+          </details>
+          <details>
+            <summary>Métricas (ideas)</summary>
+            <p class="muted" style="margin:.4rem 0 0">
+              • GA4 para visitas de página<br />
+              • Badges para descargas o DOI<br />
+              • Servir PDFs desde bucket con logs si necesitas analítica fina
+            </p>
+          </details>
+        </div>
+      </aside>
+    </main>
+
+  </div>
+</div>
+
+<!-- ===== JS: genera el TOC y resalta sección activa ===== -->
+<script>
+(function() {
+  const container = document.getElementById('productividad-app');
+  const content = container.querySelector('#content');
+  const toc = container.querySelector('#toc');
+
+  // Recolectar H2/H3 para el TOC
+  const headings = content.querySelectorAll('h2, h3');
+  const ul = document.createElement('ul');
+
+  headings.forEach(h => {
+    if (!h.id) {
+      h.id = h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w\-]/g,'');
+    }
+    const li = document.createElement('li');
+    li.style.marginLeft = (h.tagName === 'H3') ? '14px' : '0';
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  toc.appendChild(ul);
+
+  // Resaltar sección activa al hacer scroll
+  const links = toc.querySelectorAll('a');
+  const map = Array.from(headings).map(h => ({ id: h.id, top: 0 }));
+  const onScroll = () => {
+    map.forEach(m => {
+      const el = document.getElementById(m.id);
+      m.top = el.getBoundingClientRect().top;
+    });
+    let activeId = map
+      .filter(m => m.top <= (window.innerHeight * 0.25))
+      .sort((a,b) => b.top - a.top)[0]?.id || map[0]?.id;
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + activeId));
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
