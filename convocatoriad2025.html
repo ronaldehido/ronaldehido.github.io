@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Posición de Doctorado en Comportamiento Animal — Neuroetología UV</title>
+  <meta name="description" content="Convocatoria doctorado 2025 en Neuroetología (UV): comportamiento animal con monitoreo acústico e inteligencia artificial en la Selva Maya."/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0f172a; /* slate-900 */
+      --bg2:#1e293b; /* slate-800 */
+      --acc:#22d3ee; /* cyan-400 */
+      --acc2:#a78bfa;/* violet-400 */
+      --card:#0b1220dd;
+      --text:#e5e7eb; /* slate-200 */
+      --muted:#9ca3af; /* gray-400 */
+      --ring: rgba(34,211,238,.35);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background: radial-gradient(1200px 800px at 80% -10%, #1b2948, transparent),
+                                   radial-gradient(900px 600px at -10% 20%, #241a44, transparent),
+                                   linear-gradient(160deg, var(--bg1), var(--bg2));
+              color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height:1.6}
+    a{color:var(--acc); text-decoration:none}
+    a:hover{opacity:.9; text-decoration:underline}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding: 24px 18px 56px}
+    header.hero{
+      position:relative; border-radius: calc(var(--radius) + 6px);
+      overflow:hidden; box-shadow: var(--shadow); margin: 24px auto 28px;
+      min-height: 48vh; display:grid; place-items:center;
+      background: #0a1020;
+    }
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      background: url("img/aviso.jpg") center/cover no-repeat; /* <-- reemplaza con tu imagen */
+      filter: grayscale(.1) contrast(1.05) saturate(1.1) brightness(.9);
+      transform: scale(1.03);
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(60% 60% at 60% 40%, rgba(10,15,30,.2), rgba(10,15,25,.65) 60%, rgba(5,8,16,.85));
+      backdrop-filter: blur(.5px);
+    }
+    .hero-inner{
+      position:relative; z-index:2; text-align:center; padding: 18px 18px 22px
+    }
+    .badge{
+      display:inline-block; padding:6px 12px; border-radius:999px; font-size:.85rem; letter-spacing:.02em;
+      background: linear-gradient(90deg, rgba(34,211,238,.2), rgba(167,139,250,.2));
+      border:1px solid rgba(255,255,255,.15);
+      color:#d1d5db
+    }
+    h1.title{
+      margin: 14px auto 10px; font-size: clamp(1.6rem, 3.4vw, 2.4rem); line-height:1.2;
+      text-shadow: 0 6px 24px rgba(0,0,0,.35);
+    }
+    p.subtitle{
+      margin: 0 auto; max-width: 850px; color: #dbeafe; opacity:.95
+    }
+    .cta{
+      margin-top:18px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius: 12px; font-weight:600;
+      border:1px solid rgba(255,255,255,.15); background: #0b1220bb; backdrop-filter: blur(2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,.2); text-decoration:none
+    }
+    .btn.primary{ background: linear-gradient(90deg, rgba(34,211,238,.25), rgba(167,139,250,.25)); border-color: transparent}
+    .btn:focus{outline:3px solid var(--ring)}
+    .grid{
+      display:grid; gap: 18px; grid-template-columns: 1fr;
+    }
+    @media(min-width:900px){ .grid{ grid-template-columns: 2fr 1fr; } }
+    .card{
+      background: var(--card); border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow)
+    }
+    .card h2{ margin-top:0; font-size:1.25rem}
+    .divider{ height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:16px 0}
+    ul{padding-left: 1.1em; margin: .2em 0}
+    .links a.btnlink{
+      display:block; padding:10px 12px; border:1px solid rgba(255,255,255,.12);
+      border-radius:12px; margin:8px 0; text-decoration:none; background: #0c1324; font-weight:600
+    }
+    .links a.btnlink:hover{ background:#0f1830 }
+    footer{
+      margin: 32px auto 0; padding: 16px; text-align:center; color: var(--muted); font-size:.92rem
+    }
+    /* pequeño “marco” decorativo detrás del header */
+    .glow{
+      position:absolute; inset:-4px; border-radius: calc(var(--radius) + 10px);
+      background: conic-gradient(from 180deg at 50% 50%, rgba(34,211,238,.35), rgba(167,139,250,.35), rgba(34,211,238,.35));
+      filter: blur(26px); opacity:.25; z-index:0;
+    }
+    .note{
+      font-size:.92rem; color:#cbd5e1; background:#0c1426; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.08)
+    }
+    .contact a{ font-weight:700 }
+    .pill{
+      display:inline-block; padding:4px 10px; border-radius:999px; font-size:.8rem; background:#11182b; border:1px solid rgba(255,255,255,.08); color:#cbd5e1
+    }
+    .small{ font-size:.92rem; color:#cbd5e1}
+
+    .hero-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px; /* separación entre elementos */
+    flex-wrap: wrap; /* por si se hace pequeño el ancho */
+    margin: 14px auto 10px;
+    }
+
+    .hero-header .logo {
+    height: 60px;   /* ajusta al tamaño que quieras */
+    width: auto;
+    }
+
+    .hero-header .title {
+    margin: 0;
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    line-height: 1.2;
+    text-shadow: 0 6px 24px rgba(0,0,0,.35);
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="glow" aria-hidden="true"></div>
+    <header class="hero" role="banner" aria-label="Convocatoria Doctorado Neuroetología UV">
+      <div class="hero-inner">
+        <span class="badge">Convocatoria Doctorado 2025 · Neuroetología · Universidad Veracruzana (México)</span>
+        <div class="wrap">
+<img src="https://www.uv.mx/veracruz/nutricion/files/2021/04/Flor_con_uv_sin_fondo.png" alt="Logo Universidad Veracruzana" class="logo" height="90">
+        <div class="hero-header">
+            </div>
+            <h1 class="title">Posición de doctorado en comportamiento animal</h1>
+        </div>
+
+        <p class="subtitle">
+            Proyecto sobre comportamiento animal mediante <strong>monitoreo acústico</strong> e <strong>inteligencia artificial</strong> 
+            enfocado en la biodiversidad y conservación de la <em>Selva Maya</em>.
+        </p>
+        </div>
+
+    </header>
+
+    <main id="contenido" class="grid" role="main">
+      <section class="card" id="detalle" aria-labelledby="detalle-h2">
+        <h2 id="detalle-h2">Descripción</h2>
+        <p>
+          Hay disponible una posición para realizar un doctorado de 4 años, financiado con una beca de la Secretaría de Ciencia de Ciencia, Humanidades, Tecnología 
+          e Innovación de México (SECIHTI). Los intersados deberán aplicar en la convocatoria para doctorado 2025 en Neuroetología de la Universidad Veracruzana 
+          para desarrollar su propuesta de investigación sobre biología de la conducta en el marco de un proyecto sobre la implementación de metodologías de monitoreo 
+          acústico y uso de herramientas de inteligencia artificial enfocada al estudio de la biodiversidad y conservación de la Selva Maya en el 
+          sureste de la península de Yucatán. 
+        </p>
+        <p>
+          La propuesta de investigación doctoral se debe enfocar en la evaluación de patrones de comportamiento vocal de varias especies y su relación con factores 
+          ecológicos y antropogénicos y estará bajo la supervición del <strong>Dr. Filippo Aureli</strong> y el <strong>Dr. Ronald A. Fernández-Gómez</strong>.
+        </p>
+
+        <div class="divider"></div>
+        <h2>Perfil deseado</h2>
+        <ul>
+          <li>Experiencia en <strong>Bioacústica</strong> y <strong>Ecoacústica</strong>, con uso de sensores acústicos para monitoreo pasivo.</li>
+          <li>Manejo de grandes volúmenes de datos acústicos.</li>
+          <li>Conocimientos en <strong>R</strong> y <strong>Python</strong>.</li>
+          <li>Uso de <strong>clasificadores acústicos</strong> (redes neuronales) para detección de especies.</li>
+          <li>Nociones de <strong>análisis del paisaje</strong>.</li>
+        </ul>
+
+        <div class="divider"></div>
+        <h2>Fechas y proceso</h2>
+        <p>
+          El proceso de solicitud está abierto para comenzar el doctorado en <strong>enero de 2026</strong>; sin embargo, las personas interesadas deben comunicarse lo antes posible (hasta el <strong>30 de septiembre de 2025</strong>), ya que se requiere enviar un <strong>
+            protocolo de investigación</strong> 
+          desarrollado con la supervisión. Para más detalles sobre el proceso de inscripción y fechas importantes se pueden consultar el portal 
+          de la Convocatoria de Ingreso a Posgrado 2025-II de la Universidad Veracruzana. 
+          (<a href="https://www.uv.mx/escolar/posgrado2025-II/" target="_blank" rel="noopener">https://www.uv.mx/escolar/posgrado2025-II/</a>).
+        </p>
+        <!--
+        <p class="note">Tip: prepara un bosquejo de protocolo (objetivos, hipótesis, métodos, datos y cronograma) para agendar una reunión inicial.</p>
+        -->
+      </section>
+        
+
+      <aside class="card">
+        <h2>Enlaces útiles</h2>
+        <div class="links">
+          <a class="btn" href="https://www.uv.mx/neuro/" target="_blank" rel="noopener">Instituto de Neuroetología — UV</a>
+          <a class="btn" href="https://www.uv.mx/dneuro/" target="_blank" rel="noopener">Programa de Doctorado en Neuroetología — UV</a>
+        </div>
+
+        <div class="divider"></div>
+        <h2 id="contacto">Contacto</h2>
+        <p class="contact">
+          <span class="pill">Enviar CV + carta de presentacion</span><br>
+          <strong>Dr. Filippo Aureli</strong> — <a href="mailto:faureli@uv.mx">faureli@uv.mx</a><br>
+          <strong>Dr. Ronald A. Fernández-Gómez</strong> — <a href="mailto:ronfernandez@uv.mx">ronfernandez@uv.mx</a>
+        </p>
+        <p class="small">Los interesados deberán enviar un correo a los supervisores incluyendo su CV y una carta de presentación expresando su interés y experiencia relacionada.</p>
+
+        <div class="divider"></div>
+        
+      </aside>
+    </main>
+
+    
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
